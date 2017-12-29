@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>NMyVision</RootNamespace>
+    <Authors>Matthew Gambill</Authors>
+    <Company>NMyVision</Company>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nmyvision/DataDictionary</RepositoryUrl>
+    <PackageTags>NMyVision, Dictionary</PackageTags>
+    <PackageId>NMyVision.DataDictionary-pre</PackageId>
+    <Description>A dictionary wrapper that converts all complex elements to Dictionary&lt;string, object&gt; or IEnumerable&lt;Dictionary&lt;string, object&gt;&gt; objects.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>
