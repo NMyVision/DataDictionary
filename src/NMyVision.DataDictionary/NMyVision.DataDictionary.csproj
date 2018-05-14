@@ -10,6 +10,9 @@
     <PackageTags>NMyVision, Dictionary</PackageTags>
     <PackageId>NMyVision.DataDictionary-pre</PackageId>
     <Description>A dictionary wrapper that converts all complex elements to Dictionary&lt;string, object&gt; or IEnumerable&lt;Dictionary&lt;string, object&gt;&gt; objects.</Description>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

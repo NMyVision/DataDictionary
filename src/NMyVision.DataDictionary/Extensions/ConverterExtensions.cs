@@ -55,55 +55,10 @@ namespace NMyVision.Extensions
             if (item == null) return null;
             if (type.GetTypeInfo().IsInstanceOfType(item)) return item;
 
-            object value;
+            // Cheat, since we are already referencing Json library use it to do the heavy lifting of serializing the object.
+            // We lose some custom logic surrounding bool types but acceptable trade off... I think.
 
-            var temp = item.ToString();
-
-            if (type == typeof(string))
-            {
-                return temp;
-            }
-            else if (type == typeof(bool))
-            {
-                if (string.IsNullOrEmpty(temp))
-                {
-                    //do nothing we will throw error below
-                }
-                else if (new[] { "yes", "1", "-1", "checked", "on", "true" }
-                    .Contains(temp, StringComparer.OrdinalIgnoreCase))
-                    return true;
-                else if (new[] { "no", "0", "off", "false" }
-                    .Contains(temp, StringComparer.OrdinalIgnoreCase))
-                    return false;
-
-                throw new InvalidCastException($"String '{ temp }' cannot be casted to a boolean.") { Source = temp };
-            }
-            else if (type == typeof(Guid) && !string.IsNullOrEmpty(temp))
-            {
-                return Guid.Parse(temp);
-            }
-            else if (type.IsNullableType())
-            {
-                if (string.IsNullOrEmpty(temp.Trim()))
-                    return null;
-
-                try
-                {
-                    type = Nullable.GetUnderlyingType(type);
-
-                    return temp.To(type);
-                }
-                catch { return null; }
-
-            }
-            else if (type.GetTypeInfo().IsEnum)
-            {
-                //TODO: consider adding debug check here if temp does not exist should we default or throw error?
-                return Enum.Parse(type, temp);
-            }
-            value = System.Convert.ChangeType(temp, type);
-
-            return value;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(Newtonsoft.Json.JsonConvert.SerializeObject(item), type);            
         }        
     }
 }

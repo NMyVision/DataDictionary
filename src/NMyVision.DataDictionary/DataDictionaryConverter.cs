@@ -88,14 +88,21 @@ namespace NMyVision
                 {
                     if (array.GroupBy(x => x.Type).Count() == 1)
                     {
-
-                        var t = ((JValue)array.First()).Value.GetType();
-                        Array a = Array.CreateInstance(t, array.Count());
-                        array.Cast<JValue>().Each((y, index) =>
+                        var jv = array.First() as JValue;
+                        if (jv.HasValues)
                         {
-                            a.SetValue(y.Value.To(t), index);
-                        });
-                        dict.Add(name, a);
+                            var t = jv.Value.GetType();
+                            Array a = Array.CreateInstance(t, array.Count());
+                            array.Cast<JValue>().Each((y, index) =>
+                            {
+                                a.SetValue(y.Value.To(t), index);
+                            });
+                            dict.Add(name, a);
+                        }
+                        else
+                        {
+                            dict.Add(name, new object[0]);
+                        }
                     }
                     else
                     {

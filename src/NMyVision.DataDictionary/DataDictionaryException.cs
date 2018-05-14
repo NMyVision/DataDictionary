@@ -11,7 +11,7 @@ namespace NMyVision
         {            
             public readonly string Name;
             public readonly object Value;
-            public readonly IDictionary<string, object> Source;
+            public readonly new IDictionary<string, object> Source;
 
             public DataDictionaryException()
             {

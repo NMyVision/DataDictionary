@@ -73,8 +73,22 @@ namespace NMyVision
 
         #endregion
 
-
+        /// <summary>
+        ///  Adds the specified key and value to the dictionary.
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(KeyValuePair<string, object> item) => this.Add(item.Key, item.Value);
+
+        /// <summary>
+        /// Convert DataDictionary to an object of type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T To<T>()
+        {
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(this));
+        }
+
 
         /// <summary>
         /// Gets the value associated with the specified key.
