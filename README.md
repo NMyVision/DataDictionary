@@ -1,12 +1,13 @@
 # DataDictionary
 
-Dictionary representation of any datasource. The ```key``` is always ```string```, while the value is either:
-  - a simple type (```string```, ```boolean```, ```int```, ```DateTime```, etc...) 
-  - an array of 
-    - DataDictionaries 
-    - simple types
-  - DataDictionary
+A dictionary wrapper that converts all complex values to Dictionary<string, object> or IEnumerable<Dictionary<string, object>> objects.
 
+Furthermore object in <string, object> will always be one of the following:
+  - a simple type (```string```, ```boolean```, ```int```, ```DateTime```, etc...) 
+  - an array of type
+    - DataDictionary 
+    - simple type
+  - DataDictionary
 
 ## Example
 
