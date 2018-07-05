@@ -89,8 +89,18 @@ namespace NMyVision
                     if (array.GroupBy(x => x.Type).Count() == 1)
                     {
                         var jv = array.First() as JValue;
-                        if (jv.HasValues)
-                        {
+                        //if (jv.HasValues)
+                        //{
+                        //    var t = jv.Value.GetType();
+                        //    Array a = Array.CreateInstance(t, array.Count());
+                        //    array.Cast<JValue>().Each((y, index) =>
+                        //    {
+                        //        a.SetValue(y.Value.To(t), index);
+                        //    });
+                        //    dict.Add(name, a);
+                        //}
+                        //else
+                        //{
                             var t = jv.Value.GetType();
                             Array a = Array.CreateInstance(t, array.Count());
                             array.Cast<JValue>().Each((y, index) =>
@@ -98,11 +108,9 @@ namespace NMyVision
                                 a.SetValue(y.Value.To(t), index);
                             });
                             dict.Add(name, a);
-                        }
-                        else
-                        {
-                            dict.Add(name, new object[0]);
-                        }
+
+                            //dict.Add(name, new object[0]);
+                        //}
                     }
                     else
                     {
