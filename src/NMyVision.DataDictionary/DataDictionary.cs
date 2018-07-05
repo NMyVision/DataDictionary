@@ -3,6 +3,7 @@ using NMyVision.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 
 namespace NMyVision
@@ -89,6 +90,12 @@ namespace NMyVision
             return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(this));
         }
 
+        /// <summary>
+        /// Convert DataDictionary to an ExpandoObject of type .
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public ExpandoObject ToExpandoObject() => this.ToExpando();
 
         /// <summary>
         /// Gets the value associated with the specified key.
@@ -225,7 +232,6 @@ namespace NMyVision
 
             return result;
         }
-
-
+        
     }
 }
