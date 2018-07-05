@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>NMyVision.DataDictionary</id>
-    <version>$version$</version>
+    <version>1.0.3</version>
     <title>NMyVision DataDictionary</title>
     <authors>NMyVision</authors>
     <owners>Matthew Gambill</owners>
@@ -15,6 +15,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="NMyVision.DataDictionary\bin\$configuration$\netstandard2.0\NMyVision.DataDictionary.dll" target="NMyVision.DataDictionary.dll" />
+    <file src="NMyVision.DataDictionary\bin\release\netstandard2.0\NMyVision.DataDictionary.dll" target="NMyVision.DataDictionary.dll" />
   </files>
 </package>

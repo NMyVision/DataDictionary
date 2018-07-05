@@ -30,7 +30,7 @@ dd = DataDictionary.From(source);
 
 Generates:
 
-![Sample result](images\capture001.png)
+![Sample result](images/capture001.PNG)
 
 ### Class example
 
@@ -60,4 +60,4 @@ void Main()
 
 Generates:
 
-![Sample result](images\capture002.png)
+![Sample result](images/capture002.PNG)
