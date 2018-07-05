@@ -62,3 +62,48 @@ void Main()
 Generates:
 
 ![Sample result](images/capture002.PNG)
+
+### JSON parsing
+
+```csharp
+string json = @"{
+  'title': 'Person',
+  'type': 'object',
+    'properties': {
+    'firstName': {
+      'type': 'string'
+    },
+    'lastName': {
+      'type': 'string'
+    },
+    'age': {
+      'description': 'Age in years',
+      'type': 'integer',
+      'minimum': 0,
+      'foo': null
+    }
+  },
+  'required': ['firstName', 'lastName'],
+  'people': [ ]
+}";
+
+var dd = DataDictionary.ParseJson(json);
+```
+![Sample result](images/capture003.PNG)
+
+
+### Helper methods
+
+
+```csharp
+var dd = DataDictionary.ParseJson(json);
+dd.Flatten();
+```
+![Sample result](images/capture004.PNG)
+
+```csharp
+dynamic d = dd.ToExpandoObject();
+d.properties.age.type; 
+
+// integer
+```
