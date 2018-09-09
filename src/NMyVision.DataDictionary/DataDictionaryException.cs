@@ -27,9 +27,14 @@ namespace NMyVision
 
             public DataDictionaryException(Exception ex, string name, object value, IDictionary<string, object> dict) : base($"Error {{ name= {name}, value= {value}, type= { value.GetType().Name } }}.", ex)
             {
+                
                 this.Data.Add("Name", name);
-                this.Data.Add("Value", value);
-                this.Data.Add("Source", dict);
+
+                if (value.GetType().IsSerializable)
+                    this.Data.Add("Value", value);
+
+                if (dict.GetType().IsSerializable)
+                    this.Data.Add("Source", dict);
 
                 this.Name = name;
                 this.Value = value;

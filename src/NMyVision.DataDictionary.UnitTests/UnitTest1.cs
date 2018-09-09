@@ -54,5 +54,17 @@ namespace NMyVision.DataDictionaryTests
 
 
         }
+
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            string json = System.IO.File.ReadAllText(@"D:\Downloads\db.nmyvision.net\forms.json");
+
+            var dd = DataDictionary.ParseJson(json);
+
+
+
+        }
     }
 }

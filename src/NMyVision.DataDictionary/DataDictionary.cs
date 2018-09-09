@@ -59,6 +59,9 @@ namespace NMyVision
 
         public static DataDictionary ParseJson(string content)
         {
+            // if json is an array wrap it in a root key... might change this later to deserialize an DataDictionary[]
+            if (content.StartsWith("["))
+                content = $"{{ \"root\" : {content} }}";
             return JsonConvert.DeserializeObject<DataDictionary>(content, new Converter());
         }
 
@@ -137,13 +140,13 @@ namespace NMyVision
         {
 
             var o = this.Get<object>(key);
-            if (o is System.Collections.IEnumerable oe)
+            if (o is IEnumerable oe)
             {
                 return oe
                 .Cast<object>()
                 .Select(x =>
                    DataDictionary.ParseJson(
-                       Newtonsoft.Json.JsonConvert.SerializeObject(x)))
+                       JsonConvert.SerializeObject(x)))
                 .AsEnumerable();
             }
 
