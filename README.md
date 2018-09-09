@@ -31,7 +31,7 @@ dd = DataDictionary.From(source);
 
 Generates:
 
-![Sample result](images/capture001.PNG)
+![Sample result](https://github.com/NMyVision/DataDictionary/raw/master/images/capture001.PNG)
 
 ### Class example
 
@@ -61,7 +61,7 @@ void Main()
 
 Generates:
 
-![Sample result](images/capture002.PNG)
+![Sample result](https://github.com/NMyVision/DataDictionary/raw/master/images/capture002.PNG)
 
 ### JSON parsing
 
@@ -89,7 +89,7 @@ string json = @"{
 
 var dd = DataDictionary.ParseJson(json);
 ```
-![Sample result](images/capture003.PNG)
+![Sample result](https://github.com/NMyVision/DataDictionary/raw/master/images/capture003.PNG)
 
 
 ### Helper methods
@@ -99,7 +99,7 @@ var dd = DataDictionary.ParseJson(json);
 var dd = DataDictionary.ParseJson(json);
 dd.Flatten();
 ```
-![Sample result](images/capture004.PNG)
+![Sample result](https://github.com/NMyVision/DataDictionary/raw/master/images/capture004.PNG)
 
 ```csharp
 dynamic d = dd.ToExpandoObject();
