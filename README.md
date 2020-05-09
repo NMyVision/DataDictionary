@@ -2,6 +2,8 @@
 
 A dictionary wrapper that converts all complex values to Dictionary<string, object> or IEnumerable<Dictionary<string, object>> objects.
 
+![NuGet](https://img.shields.io/nuget/v/NMyVision.DataDictionary.svg?style=flat-square&logo=nuget)
+
 Furthermore object in <string, object> will always be one of the following:
   - a simple type (```string```, ```boolean```, ```int```, ```DateTime```, etc...) 
   - an array of type
